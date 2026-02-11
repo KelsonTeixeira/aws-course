@@ -1,4 +1,7 @@
 
 
-GET https://c66z7bjzlf.execute-api.us-east-1.amazonaws.com/prod/spaces
+GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
+###
+
+POST https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
 ###
