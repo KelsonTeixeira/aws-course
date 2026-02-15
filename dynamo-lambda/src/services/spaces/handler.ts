@@ -2,6 +2,8 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { APIGatewayProxyEvent, APIGatewayProxyResult, Context } from 'aws-lambda';
 import { postSpace } from './PostSpaces';
 import { getSpace } from './GetSpaces';
+import { updateSpace } from './UpdateSpace';
+import { deleteSpace } from './DeleteSpace';
 
 const ddbClient = new DynamoDBClient({});
 
@@ -18,7 +20,18 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
 
       case 'POST':
         const postResponse = await postSpace(event, ddbClient);
+        console.log(postResponse);
         return postResponse;
+
+      case 'PUT':
+        const putResponse = await updateSpace(event, ddbClient);
+        console.log(putResponse);
+        return putResponse;
+
+      case 'DELETE':
+        const deleteResponse = await deleteSpace(event, ddbClient);
+        console.log(deleteResponse);
+        return deleteResponse;
       
       default:
         message = "Hello from unknown method!";

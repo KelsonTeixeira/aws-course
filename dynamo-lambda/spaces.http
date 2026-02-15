@@ -3,7 +3,21 @@
 GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
 ###
 
+GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces/id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
+###
+
 POST https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
+content-type: application/json
+
+{
+  "location": "Brasilia, Brasil"
+}
+###
+
+DELETE https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces/id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
+###
+
+POST https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces?id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
 content-type: application/json
 
 {

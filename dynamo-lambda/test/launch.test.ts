@@ -2,12 +2,12 @@ import { handler } from '../src/services/spaces/handler';
 
 
 handler({
-  httpMethod: 'GET',
+  httpMethod: 'DELETE',
   queryStringParameters: {
-    id: 'eb7ddf61-0896-4263-bb47-da11a3d7c41e'
-  }
+    id: '31d28d48-5bb5-4fef-aaae-372ddc643bde'
+  },
   // body: JSON.stringify({
-  //   location: 'New York',
-  //   country: 'USA'
+  //   //location: 'Brasília',
+  //   country: 'Brasil'
   // })
 } as any, {} as any );
