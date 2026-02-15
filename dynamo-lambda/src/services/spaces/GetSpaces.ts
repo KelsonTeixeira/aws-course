@@ -40,10 +40,12 @@ export async function getSpace(event: APIGatewayProxyEvent, ddbClient: DynamoDBC
     TableName: process.env.TABLE_NAME
   }));
 
-  console.log(result);
+  const adptResult = result.Items ? result.Items.map(item => unmarshall(item)) : [];
+
+  console.log(adptResult);
 
   return {
-    statusCode: 201,
-    body: JSON.stringify(result.Items)
+    statusCode: 200,
+    body: JSON.stringify(adptResult)
   }
 }

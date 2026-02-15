@@ -4,6 +4,7 @@ import { postSpace } from './PostSpaces';
 import { getSpace } from './GetSpaces';
 import { updateSpace } from './UpdateSpace';
 import { deleteSpace } from './DeleteSpace';
+import { JsonError, MissingFieldError } from '../shared/Validator';
 
 const ddbClient = new DynamoDBClient({});
 
@@ -38,11 +39,22 @@ async function handler(event: APIGatewayProxyEvent, context: Context): Promise<A
         break;
     }
   } catch (error) {
-    console.error(error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ message: 'Internal Server Error' })
+    if(error instanceof MissingFieldError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: error.message })
+      }
     }
+    if(error instanceof JsonError) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ message: error.message })
+      }
+    }
+    return {
+        statusCode: 500,
+        body: JSON.stringify({ message: 'Internal Server Error' })
+      }
   }
 
 

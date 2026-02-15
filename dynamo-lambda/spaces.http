@@ -3,24 +3,30 @@
 GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
 ###
 
-GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces/id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
+GET https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces?id=37472f38-4ff0-4b96-876e-4ae2b46d0d14
 ###
 
 POST https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces
 content-type: application/json
 
 {
-  "location": "Brasilia, Brasil"
+  "location": "Brasilia, Brasil",
+  "name": "Café do Museu",
+  "country": "Brasil",
+  "photoUrl": "https://"
 }
 ###
 
-DELETE https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces/id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
+DELETE https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces?id=37472f38-4ff0-4b96-876e-4ae2b46d0d14
 ###
 
-POST https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces?id=eb7ddf61-0896-4263-bb47-da11a3d7c41e
+PUT https://705z8vffi0.execute-api.us-east-1.amazonaws.com/prod/spaces?id=37472f38-4ff0-4b96-876e-4ae2b46d0d14
 content-type: application/json
 
 {
-  "location": "Brasilia, Brasil"
+  "location": "Sobradinho, Brasil",
+  "name": "Museu Nacional",
+  "country": "Brasil",
+  "photoUrl": "https://"
 }
 ###

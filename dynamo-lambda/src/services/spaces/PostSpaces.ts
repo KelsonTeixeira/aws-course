@@ -2,11 +2,13 @@ import { DynamoDBClient, PutItemCommand } from "@aws-sdk/client-dynamodb";
 import { marshall } from "@aws-sdk/util-dynamodb";
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 import { v4 as uuidv4 } from 'uuid';
+import { validateSpaceEntry } from "../shared/Validator";
 
 
 export async function postSpace(event: APIGatewayProxyEvent, ddbClient: DynamoDBClient): Promise<APIGatewayProxyResult> {
  const ID = uuidv4();
  const body = JSON.parse(event.body || '{}');
+ validateSpaceEntry(body);
 
  body.id = ID;
 
